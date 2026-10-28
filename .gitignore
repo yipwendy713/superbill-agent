@@ -1,0 +1,17 @@
+# Python environment and caches
+.venv/
+__pycache__/
+*.pyc
+
+# Generated superbills (may contain patient names)
+superbills/
+
+# Guava project settings (account and project IDs, phone number)
+guava.toml
+
+# Local copies and backups
+guava-docs.md
+main_starter.py.bak
+
+# macOS
+.DS_Store

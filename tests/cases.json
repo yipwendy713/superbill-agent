@@ -1,0 +1,102 @@
+[
+  {
+    "id": "happy-path-right-knee",
+    "category": "normal session",
+    "pt_says": "Jane Doe, today, right knee pain, no evaluation. Twenty-five minutes of manual therapy and thirty minutes of therapeutic exercise. No other services.",
+    "heard": {"diagnosis_phrase": "right knee pain", "eval_level": "none",
+              "minutes": {"97140": 25, "97110": 30}, "estim_unattended": false},
+    "expected": {"diagnosis": "M25.561",
+                 "lines": [{"code": "97140", "units": 2}, {"code": "97110", "units": 2}],
+                 "total": 200.00, "warnings": 0}
+  },
+  {
+    "id": "frozen-shoulder-left-moderate-eval",
+    "category": "everyday diagnosis phrase",
+    "pt_says": "John Roe, today, frozen shoulder on the left, moderate eval, forty minutes of therapeutic exercise. That's it.",
+    "heard": {"diagnosis_phrase": "frozen shoulder on the left", "eval_level": "moderate",
+              "minutes": {"97110": 40}, "estim_unattended": false},
+    "expected": {"diagnosis": "M75.02",
+                 "lines": [{"code": "97162", "units": 1}, {"code": "97110", "units": 3}],
+                 "total": 235.00, "warnings": 0}
+  },
+  {
+    "id": "tennis-elbow-right",
+    "category": "everyday diagnosis phrase",
+    "pt_says": "Maria Lopez, today, tennis elbow on the right. Fifteen minutes of manual therapy and twenty minutes of therapeutic exercise, no other services.",
+    "heard": {"diagnosis_phrase": "tennis elbow on the right", "eval_level": "none",
+              "minutes": {"97140": 15, "97110": 20}, "estim_unattended": false},
+    "expected": {"diagnosis": "M77.11",
+                 "lines": [{"code": "97140", "units": 1}, {"code": "97110", "units": 1}],
+                 "total": 100.00, "warnings": 0}
+  },
+  {
+    "id": "sciatica-right-23-minutes",
+    "category": "unit rounding edge case",
+    "pt_says": "Sam Patel, today, low back pain with sciatica on the right side. Twenty-three minutes of therapeutic exercise. That's all.",
+    "heard": {"diagnosis_phrase": "low back pain with sciatica on the right side", "eval_level": "none",
+              "minutes": {"97110": 23}, "estim_unattended": false},
+    "expected": {"diagnosis": "M54.41",
+                 "lines": [{"code": "97110", "units": 2}],
+                 "total": 100.00, "warnings": 0}
+  },
+  {
+    "id": "neck-pain-7-minutes-not-billed",
+    "category": "unit rounding edge case",
+    "pt_says": "Ann Lee, today, neck pain. Thirty minutes of manual therapy and seven minutes of neuro re-ed. No other services.",
+    "heard": {"diagnosis_phrase": "neck pain", "eval_level": "none",
+              "minutes": {"97140": 30, "97112": 7}, "estim_unattended": false},
+    "expected": {"diagnosis": "M54.2",
+                 "lines": [{"code": "97140", "units": 2}],
+                 "total": 100.00, "warnings": 1}
+  },
+  {
+    "id": "balance-unpriced-neuro-reed",
+    "category": "unpriced code",
+    "pt_says": "Robert King, today, he's unsteady on his feet, balance problems. Thirty minutes of neuromuscular re-education and fifteen minutes of therapeutic exercise. That's it.",
+    "heard": {"diagnosis_phrase": "unsteady on his feet, balance problems", "eval_level": "none",
+              "minutes": {"97112": 30, "97110": 15}, "estim_unattended": false},
+    "expected": {"diagnosis": "R26.81",
+                 "lines": [{"code": "97110", "units": 1}, {"code": "97112", "units": 2}],
+                 "total": 50.00, "warnings": 1}
+  },
+  {
+    "id": "knee-replacement-rehab-right",
+    "category": "diagnosis coding rule",
+    "pt_says": "Linda Park, today, rehab after her right knee replacement, low eval, thirty minutes of therapeutic exercise. No other services.",
+    "heard": {"diagnosis_phrase": "rehab after right knee replacement", "eval_level": "low",
+              "minutes": {"97110": 30}, "estim_unattended": false},
+    "expected": {"diagnosis": "Z47.1",
+                 "lines": [{"code": "97161", "units": 1}, {"code": "97110", "units": 2}],
+                 "total": 185.00, "warnings": 0}
+  },
+  {
+    "id": "plantar-fasciitis-left-new-2027-code",
+    "category": "code set change",
+    "pt_says": "Chris Wong, today, plantar fasciitis in the left foot. Ten minutes of ultrasound and thirty minutes of therapeutic exercise. That's it.",
+    "heard": {"diagnosis_phrase": "plantar fasciitis in the left foot", "eval_level": "none",
+              "minutes": {"97035": 10, "97110": 30}, "estim_unattended": false},
+    "expected": {"diagnosis": "M67.A02",
+                 "lines": [{"code": "97110", "units": 2}, {"code": "97035", "units": 1}],
+                 "total": 125.00, "warnings": 0}
+  },
+  {
+    "id": "code-read-aloud",
+    "category": "diagnosis code spoken directly",
+    "pt_says": "Pat Green, today, diagnosis M54.50, low complexity eval, forty-five minutes of therapeutic exercise. No other services.",
+    "heard": {"diagnosis_phrase": "M54.50", "eval_level": "low",
+              "minutes": {"97110": 45}, "estim_unattended": false},
+    "expected": {"diagnosis": "M54.50",
+                 "lines": [{"code": "97161", "units": 1}, {"code": "97110", "units": 3}],
+                 "total": 235.00, "warnings": 0}
+  },
+  {
+    "id": "acl-sprain-estim-both",
+    "category": "unpriced code",
+    "pt_says": "Kim Ortiz, today, ACL sprain in the right knee. Fifteen minutes of attended e-stim and unattended e-stim after. That's all.",
+    "heard": {"diagnosis_phrase": "ACL sprain in the right knee", "eval_level": "none",
+              "minutes": {"97032": 15}, "estim_unattended": true},
+    "expected": {"diagnosis": "S83.511D",
+                 "lines": [{"code": "97032", "units": 1}, {"code": "97014", "units": 1}],
+                 "total": 25.00, "warnings": 1}
+  }
+]
